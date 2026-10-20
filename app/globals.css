@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+* {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  background: #000000;
+  color: #ffffff;
+  min-height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #000000;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: 'Poppins', inherit;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-headline-gradient {
+    background: linear-gradient(to bottom, #ffffff, #ffffff, rgba(255, 255, 255, 0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.05em;
+  }
+}
+
+/* ============================================================
+   SaaS Unified Theme Utilities & Components
+   ============================================================ */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+/* SaaS Theme Card & Panel */
+.hp-glass-panel {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hp-glass-card {
+  background: #050505;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hp-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Prose overrides for dark mode job descriptions */
+.prose.prose-invert {
+  color: #9ca3af;
+}
+.prose.prose-invert ul { list-style-type: disc; padding-left: 1.25rem; }
+.prose.prose-invert li { margin-bottom: 0.25rem; }
+.prose.prose-invert h2,
+.prose.prose-invert h3 { font-weight: 600; color: #ffffff; margin-top: 1.25rem; }
+
+/* Skeleton loading shimmer */
+@keyframes hp-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.hp-skeleton {
+  background: linear-gradient(90deg, #111827 0%, #030712 50%, #111827 100%);
+  background-size: 800px 100%;
+  animation: hp-shimmer 1.5s infinite;
+}
+
+/* Animations */
+@keyframes hp-fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hp-animate-in { animation: hp-fade-in-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
